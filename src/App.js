@@ -2,14 +2,21 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './app.css';
+import useRequest from './useRequest';
 
 const client = axios.create({
   baseUrl: "https://jsonplaceholder.typicode.com/posts"
 })
+
+
+
 function App() {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [posts, setPosts] = useState([]);
+
+  // let {loading, res, err} = useRequest("https://jsonplaceholder.typicode.com/posts");
+  // console.log(loading);
 
   let handleSubmit = (e) => {
     e.preventDefault();
